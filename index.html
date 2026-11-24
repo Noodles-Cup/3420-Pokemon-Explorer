@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pokémon Explorer</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="hero">
+  <h1>Pokémon Explorer</h1>
+  <p id="gameTitle">Pokémon FireRed</p>
+</header>
+<main>
+  <form id="searchForm" class="search" role="search">
+    <input id="q" type="search" placeholder="Search Pokémon by name or Pokédex number…" aria-label="Search Pokémon" required>
+  </form>
+  <div class="selects">
+    <label>Generation <select id="gen"></select></label>
+    <label>Game <select id="game"></select>
+      <small id="others"></small></label>
+  </div>
+  <nav class="tabs" role="tablist">
+    <button data-tab="dex" class="on">Pokédex</button>
+    <button data-tab="loc">Locations</button>
+    <button data-tab="col">My collection</button>
+  </nav>
+  <p id="msg" role="status"></p>
+
+  <section id="dex" class="tab">
+    <div class="pager">
+      <button id="prev">‹ Previous</button><strong id="pagerTitle"></strong><button id="next">Next ›</button>
+    </div>
+    <div class="grid">
+      <figure class="art"><img id="art" alt=""></figure>
+      <div>
+        <dl id="info" class="info"></dl>
+        <div id="avail" class="avail"></div>
+        <div class="actions">
+          <button id="own">Mark as caught</button>
+          <button id="want">Want to catch</button>
+          <button id="drop" class="ghost">Remove</button>
+        </div>
+      </div>
+    </div>
+    <h2>Base stats</h2><div id="stats" class="stats"></div>
+    <h2>Learnset</h2><div class="scroll"><table id="moves"></table></div>
+  </section>
+
+  <section id="loc" class="tab" hidden>
+    <form id="locForm" class="search"><input id="locQ" type="search" placeholder="Search a location, e.g. route 1, viridian forest…" required></form>
+    <div id="locList" class="chips"></div>
+    <h2 id="locTitle"></h2><div class="scroll"><table id="locTable"></table></div>
+  </section>
+
+  <section id="col" class="tab" hidden>
+    <div id="colList" class="chips"></div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
